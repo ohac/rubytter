@@ -10,13 +10,14 @@ class Rubytter
       @proxy_password = options[:proxy_password]
       @proxy_uri = nil
       @enable_ssl = options[:enable_ssl]
+      @port = options[:port]
 
       if @enable_ssl
         @protocol = "https"
-        @port = 443
+        @port = 443 unless @port
       else
         @protocol = "http"
-        @port = 80
+        @port = 80 unless @port
       end
 
       if @proxy_host
